@@ -12,5 +12,10 @@
             "name": "ros",
             "email": "rk65536@protonmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "InvisibleCollector\\Shlink\\": "src/"
+        }
+    }
 }
