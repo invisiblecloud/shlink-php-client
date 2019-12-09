@@ -10,4 +10,6 @@ $request = new ShortenUrl();
 $request->setUrl("https://stackoverflow.com/questions/17766626/how-to-set-default-header-in-guzzle");
 $response = $client->shortenUrl($request);
 
+echo $response;
+echo "\n";
 echo $response->getShortUrl();
