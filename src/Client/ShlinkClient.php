@@ -2,16 +2,39 @@
 
 namespace InvisibleCollector\Shlink\Client;
 
-class ShlinkClient {
-    private $path;
+require_once 'vendor/autoload.php';
 
-    function __construct(string $path) {
-        $this->path = $path;
+use GuzzleHttp\Client;
+
+class ShlinkClient {
+    private $client;
+
+    function __construct(string $shlinkPath, string $apiKey) {
+        $this->client = new Client([
+            'base_uri' => $shlinkPath,
+            'timeout' => 2.0,
+            'headers' => [
+                'x-api-key' => $apiKey,
+                'Accept' => 'application/json',
+            ]
+        ]);
     }
 
-    function hi() {
-        $p = $this->path;
-        echo "$p";
+    function shortenUrl($url) {
+        $response = $this->client->request('POST', '/rest/v1/short-urls', [
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ],
+            'json' => [
+                "longUrl" => $url
+            ]
+        ]);
+
+        $code = $response->getStatusCode(); // 200
+        $reason = $response->getReasonPhrase(); // OK
+        $body = $response->getBody();
+        
+        return $body;
     }
 }
 
