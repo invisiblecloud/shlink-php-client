@@ -12,7 +12,7 @@ class ShlinkClient
 {
     private $client;
 
-    function __construct(string $shlinkPath, string $apiKey)
+    function __construct(string $apiKey, string $shlinkPath)
     {
         $this->client = new Client([
             'base_uri' => $shlinkPath,
