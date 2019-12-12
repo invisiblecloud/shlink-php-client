@@ -14,6 +14,7 @@ Install dependencies:
 
 Run linter:
 
+    php -l . # will check
     ./vendor/bin/phpcs  --standard=PSR2 src
 
 Automatically fix lint problems:
