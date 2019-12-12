@@ -17,4 +17,8 @@ class ShortenedUrl extends Model {
     function getShortCode(): string {
         return $this->fields["shortCode"];
     }
+
+    function getTags(): array {
+        return $this->fields["tags"];
+    }
 }
