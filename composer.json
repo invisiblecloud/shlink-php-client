@@ -22,5 +22,8 @@
         "psr-4": {
             "InvisibleCollector\\Shlink\\": "src/"
         }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
     }
 }

@@ -24,7 +24,7 @@ echo $response->getShortUrl();
 //     [shortUrl] => https://localhost/abcd1234
 //     [longUrl] => https://stackoverflow.com/questions/17766626/how-to-set-default-header-in-guzzle
 //     [dateCreated] => 2019-12-12T08:50:37+00:00
-//     [visitsCount] => 0
+//     [visitsCount] => 0   
 //     [tags] => Array
 //         (
 //             [0] => tag1

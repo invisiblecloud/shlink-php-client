@@ -2,8 +2,6 @@
 
 namespace InvisibleCollector\Shlink\Client;
 
-require_once 'vendor/autoload.php';
-
 use GuzzleHttp\Client;
 use InvisibleCollector\Shlink\Client\Models\Requests\ShortenUrl;
 use InvisibleCollector\Shlink\Client\Models\Responses\ShortenedUrl;
@@ -12,7 +10,7 @@ class ShlinkClient
 {
     private $client;
 
-    function __construct(string $apiKey, string $shlinkPath)
+    public function __construct(string $apiKey, string $shlinkPath)
     {
         $this->client = new Client([
             'base_uri' => $shlinkPath,
@@ -24,7 +22,7 @@ class ShlinkClient
         ]);
     }
 
-    function shortenUrl(ShortenUrl $model)
+    public function shortenUrl(ShortenUrl $model)
     {
         $response = $this->client->request('POST', '/rest/v1/short-urls', [
             'headers' => [
@@ -34,7 +32,7 @@ class ShlinkClient
         ]);
 
         $body = $response->getBody();
-        $arr = json_decode($body, TRUE);
+        $arr = json_decode($body, true);
 
         return new ShortenedUrl($arr);
     }

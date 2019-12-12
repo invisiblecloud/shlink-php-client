@@ -6,7 +6,7 @@ use InvisibleCollector\Shlink\Client\Models\Model;
 
 class ShortenUrl extends Model
 {
-    function setUrl(string $url)
+    public function setUrl(string $url)
     {
         $this->fields["longUrl"] = $url;
 
@@ -14,11 +14,13 @@ class ShortenUrl extends Model
         $this->fields["findIfExists"] = true;
     }
 
-    function setTags(array $tagsList) {
+    public function setTags(array $tagsList)
+    {
         $this->fields["tags"] = $tagsList;
     }
 
-    function setCustomSlug(string $slug) {
+    public function setCustomSlug(string $slug)
+    {
         $this->fields["customSlug"] = $slug;
     }
 }
