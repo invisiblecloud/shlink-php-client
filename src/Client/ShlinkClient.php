@@ -6,6 +6,9 @@ use GuzzleHttp\Client;
 use InvisibleCollector\Shlink\Client\Models\Requests\ShortenUrl;
 use InvisibleCollector\Shlink\Client\Models\Responses\ShortenedUrl;
 
+/**
+ * An HTTP+JSON client for shlink link shortener.
+ */
 class ShlinkClient
 {
     private $client;

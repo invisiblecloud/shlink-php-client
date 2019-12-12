@@ -4,13 +4,15 @@ A HTTP+JSON client for [shlink](https://shlink.io/)
 
 This repository uses the PSR-2 style guide.
 
-## Setup (dev)
+## Instructions (dev)
 
-
+### Setup
 
 Install dependencies:
 
     sudo apt install php7.2-xml
+
+### Linter
 
 Run linter:
 
@@ -20,6 +22,12 @@ Run linter:
 Automatically fix lint problems:
 
     ./vendor/bin/phpcbf  --standard=PSR2 src
+
+### Documentation
+
+Generate documentation:
+
+    ./vendor/bin/phpdoc -d ./src -t ./docs
 
 ## Examples
 

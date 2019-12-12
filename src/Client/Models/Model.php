@@ -6,7 +6,11 @@ class Model
 {
     protected $fields = [];
 
-    // shouldn't be used
+    /**
+     * shouldn't be used
+     * 
+     * @internal
+     */
     public function fields()
     {
         return $this->fields;
