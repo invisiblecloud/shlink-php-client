@@ -19,7 +19,7 @@ class ShlinkClient
     {
         $this->client = new Client([
             'base_uri' => $shlinkPath,
-            'timeout' => 2.0,
+            'timeout' => 60.0,
             'headers' => [
                 'x-api-key' => $apiKey,
                 'Accept' => 'application/json',
