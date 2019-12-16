@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use InvisibleCollector\Shlink\Client\ShlinkClient;
 use InvisibleCollector\Shlink\Client\Models\Requests\ShortenUrl;
+use InvisibleCollector\Shlink\Client\Models\Requests\VisitsOptions;
 
 final class ShlinkClientTest extends TestCase 
 {
@@ -48,6 +49,41 @@ final class ShlinkClientTest extends TestCase
         $this->assertEquals($slug, $response->getShortCode());
         $this->assertEquals($validUntil, $response->getValidUntil());
         $this->assertEquals($tags, $response->getTags());
+    }
+
+    public static function simulateClick($url) {
+        exec("curl --silent $url");
+    }
+
+    public function testStatistics() 
+    {
+        $request = new ShortenUrl();
+        $request->setUrl(ShlinkClientTest::generateValidUrl());
+        $response = $this->client->shortenUrl($request);
+
+        ShlinkClientTest::simulateClick($response->getShortUrl());
+
+        $response2 = $this->client->getStatistics($response->getShortCode());
+
+        $this->assertEquals(1, $response2->getTotalVisits());
+        $this->assertTrue(strpos($response2->getData()[0]["userAgent"], "curl/") !== false);
+    }
+
+    public function testStatisticsEmpty() 
+    {
+        $request = new ShortenUrl();
+        $request->setUrl(ShlinkClientTest::generateValidUrl());
+        $response = $this->client->shortenUrl($request);
+
+        ShlinkClientTest::simulateClick($response->getShortUrl());
+
+        $options = new VisitsOptions();
+        $options->setStartDate("1-1-2001");
+        $options->setEndDate("31-12-2001");
+        $response2 = $this->client->getStatistics($response->getShortCode(), $options);
+
+        // no visits set in the past
+        $this->assertEquals(0, $response2->getTotalVisits());
     }
 
 }
