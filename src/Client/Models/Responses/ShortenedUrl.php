@@ -25,4 +25,9 @@ class ShortenedUrl extends Model
     {
         return $this->fields["tags"];
     }
+
+    public function getValidUntil(): string
+    {
+        return $this->fields["meta"]["validUntil"];
+    }
 }
