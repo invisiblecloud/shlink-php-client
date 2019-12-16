@@ -1,4 +1,4 @@
-image: php:7.2-ubuntu
+image: php:7.2-fpm
 
 before_script:
   - apt-get update
