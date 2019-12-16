@@ -16,10 +16,17 @@ variables:
 
 
 stages:
-  - check
+  - lint
+  - test
 
 linter:
-  stage: check
+  stage: lint
   script: 
     - php -l .
     - ./vendor/bin/phpcs  --standard=PSR2 src
+
+# linter:
+#   stage: test
+#   script: 
+#     - php -l .
+#     - ./vendor/bin/phpcs  --standard=PSR2 src
