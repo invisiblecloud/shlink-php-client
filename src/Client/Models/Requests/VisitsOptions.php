@@ -7,7 +7,7 @@ use InvisibleCollector\Shlink\Client\Models\Model;
 class VisitsOptions extends Model
 {
     /**
-     * @param string $date visits start date. format: DD-MM-YYYY     
+     * @param string $date visits start date. format: DD-MM-YYYY
      */
     public function setStartDate(string $date)
     {
@@ -15,7 +15,7 @@ class VisitsOptions extends Model
     }
 
     /**
-     * @param string $date visits end date. format: DD-MM-YYYY     
+     * @param string $date visits end date. format: DD-MM-YYYY
      */
     public function setEndDate(string $date)
     {

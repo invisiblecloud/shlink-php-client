@@ -16,7 +16,7 @@ class Visits extends Model
         return sizeof($this->fields["visits"]["data"]);
     }
 
-    public function getData(): array 
+    public function getData(): array
     {
         return $this->fields["visits"]["data"];
     }

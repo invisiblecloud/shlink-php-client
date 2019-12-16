@@ -31,4 +31,4 @@ Generate documentation:
 
 ## Examples
 
-Checkout the examples [folder](./examples)
+Checkout the examples [folder](./examples) for examples on how to use the client.
