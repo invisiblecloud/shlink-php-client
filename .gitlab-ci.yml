@@ -1,0 +1,25 @@
+image: php:7.2
+# services:
+#   - docker:dind
+
+variables:
+  # DOCKER_DRIVER: overlay
+  # Hotfix for https://gitlab.com/gitlab-org/gitlab-ce/issues/64959. We should be able to remove it in the near future.
+  # DOCKER_TLS_CERTDIR: ""
+  # REGISTRY
+  # REGISTRY_HOST: "invisiblecloud.azurecr.io"
+  # CONTAINER_NAME: "settler"
+
+# cache:
+#   paths:
+#     - ./node_modules/
+
+
+stages:
+  - check
+
+linter:
+  stage: check
+  script: 
+    - php -l .
+    - ./vendor/bin/phpcs  --standard=PSR2 src
