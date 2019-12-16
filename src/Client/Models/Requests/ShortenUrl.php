@@ -25,7 +25,7 @@ class ShortenUrl extends Model
     }
 
     /**
-     * Set the domain of the short link returned by the server. 
+     * Set the domain of the short link returned by the server.
      * Useful when the server doesn't have the correct domain set.
      */
     public function setDomain(string $domain)
@@ -37,7 +37,8 @@ class ShortenUrl extends Model
      * @param string $isoDate must be in full ISO-8601 including time and timezone.
      * Example that will work: "2019-12-20T00:00:00Z", example that will not work: "2019-12-20T00:00:00"
      */
-    public function setValidUntil(string $isoDate) {
+    public function setValidUntil(string $isoDate)
+    {
         $this->fields["validUntil"] = $isoDate;
     }
 }
