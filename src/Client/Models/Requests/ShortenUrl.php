@@ -23,4 +23,9 @@ class ShortenUrl extends Model
     {
         $this->fields["customSlug"] = $slug;
     }
+
+    public function setDomain(string $domain)
+    {
+        $this->fields["domain"] = $domain;
+    }
 }
