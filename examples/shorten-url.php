@@ -4,13 +4,14 @@ include_once __DIR__ . '/../vendor/autoload.php';
 use InvisibleCollector\Shlink\Client\ShlinkClient;
 use InvisibleCollector\Shlink\Client\Models\Requests\ShortenUrl;
 
-$client = new ShlinkClient("d8080653-e702-4955-a9c7-f5637ad38c38", "http://localhost:8080");
+$domain = "localhost:8080";
+$client = new ShlinkClient("d8080653-e702-4955-a9c7-f5637ad38c38", "http://$domain");
 
 $request = new ShortenUrl();
 $request->setUrl("https://stackoverflow.com/questions/17766626/how-to-set-default-header-in-guzzle");
 $request->setTags(["tag1", "tag2=23"]);
 $request->setCustomSlug("abcd1234");
-$request->setDomain("shlk.com");
+$request->setDomain($domain); # the right domain might not be set in the server
 // $request->setValidUntil("2019-12-20T00:00:00Z");
 
 $response = $client->shortenUrl($request);

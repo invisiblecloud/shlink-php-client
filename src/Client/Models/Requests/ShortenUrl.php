@@ -24,6 +24,10 @@ class ShortenUrl extends Model
         $this->fields["customSlug"] = $slug;
     }
 
+    /**
+     * Set the domain of the short link returned by the server. 
+     * Useful when the server doesn't have the correct domain set.
+     */
     public function setDomain(string $domain)
     {
         $this->fields["domain"] = $domain;

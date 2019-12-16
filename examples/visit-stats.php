@@ -5,12 +5,13 @@ use InvisibleCollector\Shlink\Client\ShlinkClient;
 use InvisibleCollector\Shlink\Client\Models\Requests\ShortenUrl;
 use InvisibleCollector\Shlink\Client\Models\Requests\VisitsOptions;
 
-$client = new ShlinkClient("d8080653-e702-4955-a9c7-f5637ad38c38", "http://localhost:8080");
+$domain = "localhost:8080";
+$client = new ShlinkClient("d8080653-e702-4955-a9c7-f5637ad38c38", "http://$domain");
 
 // create shotlink to get shortCode
 $request = new ShortenUrl();
 $request->setUrl("https://www.google.com/search?client=ubuntu&channel=fs&q=php+execute+shell+command&ie=utf-8&oe=utf-8");
-$request->setDomain("localhost:8080");
+$request->setDomain($domain);
 $response = $client->shortenUrl($request);
 
 // simulate click
