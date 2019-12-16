@@ -11,6 +11,7 @@ $request->setUrl("https://stackoverflow.com/questions/17766626/how-to-set-defaul
 $request->setTags(["tag1", "tag2=23"]);
 $request->setCustomSlug("abcd1234");
 $request->setDomain("shlk.com");
+// $request->setValidUntil("2019-12-20T00:00:00Z");
 
 $response = $client->shortenUrl($request);
 

@@ -28,4 +28,12 @@ class ShortenUrl extends Model
     {
         $this->fields["domain"] = $domain;
     }
+
+    /**
+     * @param $isoDate must be in full ISO-8601 including time and timezone.
+     * Example that will work: "2019-12-20T00:00:00Z", example that will not work: "2019-12-20T00:00:00"
+     */
+    // public function setValidUntil(string $isoDate) {
+    //     $this->fields["validUntil"] = $isoDate;
+    // }
 }

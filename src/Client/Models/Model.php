@@ -8,10 +8,10 @@ class Model
 
     /**
      * shouldn't be used
-     * 
+     *
      * @internal
      */
-    public function fields()
+    public function fields(): array
     {
         return $this->fields;
     }

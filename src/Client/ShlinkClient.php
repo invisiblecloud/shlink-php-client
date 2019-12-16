@@ -4,7 +4,9 @@ namespace InvisibleCollector\Shlink\Client;
 
 use GuzzleHttp\Client;
 use InvisibleCollector\Shlink\Client\Models\Requests\ShortenUrl;
+use InvisibleCollector\Shlink\Client\Models\Requests\VisitsOptions;
 use InvisibleCollector\Shlink\Client\Models\Responses\ShortenedUrl;
+use InvisibleCollector\Shlink\Client\Models\Responses\Visits;
 
 /**
  * An HTTP+JSON client for shlink link shortener.
@@ -25,7 +27,7 @@ class ShlinkClient
         ]);
     }
 
-    public function shortenUrl(ShortenUrl $model)
+    public function shortenUrl(ShortenUrl $model): ShortenedUrl
     {
         $response = $this->client->request('POST', '/rest/v1/short-urls', [
             'headers' => [
@@ -38,5 +40,22 @@ class ShlinkClient
         $arr = json_decode($body, true);
 
         return new ShortenedUrl($arr);
+    }
+
+    public function getStatistics(string $shortCode, VisitsOptions $options = null): Visits
+    {
+        // by default no options
+        if ($options === null) {
+            $options = new VisitsOptions();
+        }
+
+        $response = $this->client->request('GET', "/rest/v1/short-urls/$shortCode/visits", [
+            'query' =>  $options->fields()
+        ]);
+
+        $body = $response->getBody();
+        $arr = json_decode($body, true);
+
+        return new Visits($arr);
     }
 }

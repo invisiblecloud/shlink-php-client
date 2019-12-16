@@ -6,7 +6,7 @@ use InvisibleCollector\Shlink\Client\Models\Model;
 
 class ShortenedUrl extends Model
 {
-    public function __construct($fields)
+    public function __construct(array $fields)
     {
         $this->fields = $fields;
     }
