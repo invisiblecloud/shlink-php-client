@@ -1,0 +1,31 @@
+{
+    "name": "invisible-collector/shlink-php-client",
+    "description": "A php HTTP+JSON client for shlink",
+    "type": "library",
+    "keywords": [
+        "shlink",
+        "HTTP client"
+    ],
+    "require": {
+        "ext-json": "^1.6",
+        "php": "7.2.*",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ros",
+            "email": "rk65536@protonmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "InvisibleCollector\\Shlink\\": "src/"
+        }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*",
+        "phpdocumentor/phpdocumentor": "2.8",
+        "phpunit/phpunit": "^8"
+    }
+}
