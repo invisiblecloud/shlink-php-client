@@ -15,8 +15,8 @@ linter:
 
 tests:
   variables:
-    - SHORT_DOMAIN_HOST=shlink:8080
-    - SHORT_DOMAIN_SCHEMA=http
+    SHORT_DOMAIN_HOST: shlink:8080
+    SHORT_DOMAIN_SCHEMA: http
   services:
     - name: "shlinkio/shlink:1.20.2"
       alias: shlink
