@@ -4,7 +4,6 @@ before_script:
   - composer install
 
 stages:
-  - lint
   - test
 
 cache:
@@ -13,7 +12,7 @@ cache:
 
 
 linter:
-  stage: lint
+  stage: test
   script: 
     - php -l .
     - ./vendor/bin/phpcs  --standard=PSR2 src
