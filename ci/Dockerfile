@@ -16,3 +16,6 @@ RUN curl -s https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN apt-get install php7.2-xml -y
 RUN apt-get install php7.2-mbstring -y
+RUN apt-get install git -y
+RUN apt-get install build-essential -y 
+RUN apt-get install zip -y
