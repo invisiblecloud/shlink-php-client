@@ -39,8 +39,12 @@ Running tests:
 docker-compose up
 
 # in another window
-SHLINK_HOST=localhost:8080 SHLINK_API_KEY=$(./generate-api-key.sh) ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
+SHLINK_HOST=localhost:8080 SHLINK_API_KEY=$(cat ci/api_key.txt) ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
 ```
 ## Examples
 
 Checkout the examples [folder](./examples) for examples on how to use the client.
+
+## Notes
+
+Check out the ci docker images [readme](./ci/README.md)

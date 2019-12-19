@@ -1,32 +1,26 @@
 image: ros65536/php-shlink-ci
 
-services:
-  - docker:dind
-
-variables:
-  # https://gist.github.com/douglasmiranda/9b899c748e915173c8f19d948bbdc69c#docker-in-docker-doesnt-work-in-gitlab-runner-exec-docker
-  DOCKER_TLS_CERTDIR: ""
-  DOCKER_DRIVER: overlay
-
-# before_script:
-#   - composer install
+before_script:
+  - composer install
 
 stages:
   - lint
   - test
 
-# linter:
-#   stage: lint
-#   script: 
-#     - php -l .
-#     - ./vendor/bin/phpcs  --standard=PSR2 src
+linter:
+  stage: lint
+  script: 
+    - php -l .
+    - ./vendor/bin/phpcs  --standard=PSR2 src
 
 tests:
+  variables:
+    - SHORT_DOMAIN_HOST=shlink:8080
+    - SHORT_DOMAIN_SCHEMA=http
   services:
     - name: "shlinkio/shlink:1.20.2"
       alias: shlink
+
   stage: test
   script: 
-    - docker image ls
-    # - php -l .
-    # - SHLINK_HOST=localhost:8080 SHLINK_API_KEY=$(./generate-api-key.sh) ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
+    - SHLINK_HOST=$SHORT_DOMAIN_HOST SHLINK_API_KEY=$(cat ci/api_key.txt) ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
