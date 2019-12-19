@@ -7,18 +7,18 @@ stages:
   - lint
   - test
 
-linter:
-  stage: lint
-  script: 
-    - php -l .
-    - ./vendor/bin/phpcs  --standard=PSR2 src
+# linter:
+#   stage: lint
+#   script: 
+#     - php -l .
+#     - ./vendor/bin/phpcs  --standard=PSR2 src
 
 tests:
   variables:
     SHORT_DOMAIN_HOST: shlink:8080
     SHORT_DOMAIN_SCHEMA: http
   services:
-    - name: "shlinkio/shlink:1.20.2"
+    - name: "ros65536/ci-shlink"
       alias: shlink
 
   stage: test
