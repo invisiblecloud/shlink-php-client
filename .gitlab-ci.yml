@@ -7,11 +7,16 @@ stages:
   - lint
   - test
 
-# linter:
-#   stage: lint
-#   script: 
-#     - php -l .
-#     - ./vendor/bin/phpcs  --standard=PSR2 src
+cache:
+  paths:
+    - ./vendor/
+
+
+linter:
+  stage: lint
+  script: 
+    - php -l .
+    - ./vendor/bin/phpcs  --standard=PSR2 src
 
 tests:
   variables:
