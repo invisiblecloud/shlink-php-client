@@ -19,3 +19,4 @@ RUN apt-get install php7.2-mbstring -y
 RUN apt-get install git -y
 RUN apt-get install build-essential -y 
 RUN apt-get install zip -y
+RUN apt-get install docker -y
