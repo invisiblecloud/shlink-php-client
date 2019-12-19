@@ -1,5 +1,13 @@
 image: ros65536/php-shlink-ci
 
+services:
+  - docker:dind
+
+variables:
+  # https://gist.github.com/douglasmiranda/9b899c748e915173c8f19d948bbdc69c#docker-in-docker-doesnt-work-in-gitlab-runner-exec-docker
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_DRIVER: overlay
+
 # before_script:
 #   - composer install
 
@@ -18,10 +26,6 @@ tests:
     - name: "shlinkio/shlink:1.20.2"
       alias: shlink
   stage: test
-  variables:
-    # https://gist.github.com/douglasmiranda/9b899c748e915173c8f19d948bbdc69c#docker-in-docker-doesnt-work-in-gitlab-runner-exec-docker
-    DOCKER_TLS_CERTDIR: ""
-
   script: 
     - docker image ls
     # - php -l .
