@@ -11,7 +11,7 @@ docker login
 docker push $DOCKER_CI_NAME
 ```
 
-- Build shlink image with set api key:
+- Build shlink image with pre-set api key:
 
 Each time the image is created the api_key is regenerated.
 
