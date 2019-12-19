@@ -12,6 +12,7 @@ Install dependencies:
 
     sudo apt install php7.2-xml
     sudo apt-get install php7.2-mbstring 
+    composer install
 
 ### Linter
 

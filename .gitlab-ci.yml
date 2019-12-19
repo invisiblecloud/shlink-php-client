@@ -1,13 +1,7 @@
-image: php:7.2-fpm
+image: ros65536/php-shlink-ci
 
 before_script:
-  - apt-get update
-  # - apt-get install curl
-  - curl -s https://getcomposer.org/installer | php
-  - mv composer.phar /usr/local/bin/composer
-  - apt-get install php7.2-xml
-  - apt-get install php7.2-mbstring 
-  - composer install 
+  - composer install
 
 stages:
   - lint
@@ -18,9 +12,3 @@ linter:
   script: 
     - php -l .
     - ./vendor/bin/phpcs  --standard=PSR2 src
-
-# linter:
-#   stage: test
-#   script: 
-#     - php -l .
-#     - ./vendor/bin/phpcs  --standard=PSR2 src
