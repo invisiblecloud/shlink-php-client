@@ -1,14 +1,24 @@
 image: ros65536/php-shlink-ci
 
-before_script:
-  - composer install
+# before_script:
+#   - composer install
 
 stages:
   - lint
   - test
 
-linter:
-  stage: lint
+# linter:
+#   stage: lint
+#   script: 
+#     - php -l .
+#     - ./vendor/bin/phpcs  --standard=PSR2 src
+
+tests:
+  services:
+    - name: "shlinkio/shlink:1.20.2"
+      alias: shlink
+  stage: test
   script: 
-    - php -l .
-    - ./vendor/bin/phpcs  --standard=PSR2 src
+    - docker image ls
+    # - php -l .
+    # - SHLINK_HOST=localhost:8080 SHLINK_API_KEY=$(./generate-api-key.sh) ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
