@@ -4,6 +4,9 @@ namespace InvisibleCollector\Shlink\Client\Models\Responses;
 
 use InvisibleCollector\Shlink\Client\Models\Model;
 
+/**
+ * Shortened url
+ */
 class ShortenedUrl extends Model
 {
     public function __construct(array $fields)
@@ -16,6 +19,9 @@ class ShortenedUrl extends Model
         return $this->fields["shortUrl"];
     }
 
+    /**
+     * The 'id' of the short url. Used for getting visit statistics among others.
+     */
     public function getShortCode(): string
     {
         return $this->fields["shortCode"];

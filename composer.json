@@ -25,7 +25,6 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "*",
-        "phpdocumentor/phpdocumentor": "2.8",
         "phpunit/phpunit": "^8"
     }
 }

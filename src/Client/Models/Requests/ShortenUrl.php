@@ -4,6 +4,9 @@ namespace InvisibleCollector\Shlink\Client\Models\Requests;
 
 use InvisibleCollector\Shlink\Client\Models\Model;
 
+/**
+ * Model for shortening urls
+ */
 class ShortenUrl extends Model
 {
     public function setUrl(string $url)
