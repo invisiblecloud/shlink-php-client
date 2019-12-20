@@ -5,7 +5,8 @@
     "version": "0.1.0",
     "keywords": [
         "shlink",
-        "HTTP client"
+        "HTTP client",
+        "link shortener"
     ],
     "require": {
         "ext-json": "^1.6",
