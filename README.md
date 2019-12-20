@@ -4,6 +4,10 @@ A HTTP+JSON client for [shlink](https://shlink.io/)
 
 This repository uses the PSR-2 style guide.
 
+To install this library run:
+
+    composer require invisible-collector/shlink-php-client
+
 ## Instructions (dev)
 
 ### Setup

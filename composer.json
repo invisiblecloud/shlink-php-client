@@ -2,6 +2,7 @@
     "name": "invisible-collector/shlink-php-client",
     "description": "A php HTTP+JSON client for shlink",
     "type": "library",
+    "version": "0.1.0",
     "keywords": [
         "shlink",
         "HTTP client"
@@ -14,8 +15,12 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "ros",
+            "name": "Rostyslav Khoptiy",
             "email": "rk65536@protonmail.com"
+        },
+        {
+            "name": "João Madureira",
+            "email": "jmadureira@invisiblecloud.pt"
         }
     ],
     "autoload": {
