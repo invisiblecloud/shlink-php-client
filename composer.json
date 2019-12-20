@@ -2,7 +2,6 @@
     "name": "invisible-collector/shlink-php-client",
     "description": "A php HTTP+JSON client for shlink",
     "type": "library",
-    "version": "0.1.0",
     "keywords": [
         "shlink",
         "HTTP client",
