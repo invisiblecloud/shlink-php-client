@@ -27,6 +27,9 @@ class ShlinkClient
         ]);
     }
 
+    /**
+     * Shorten a long url into a short url.
+     */
     public function shortenUrl(ShortenUrl $model): ShortenedUrl
     {
         $response = $this->client->request('POST', '/rest/v1/short-urls', [
@@ -42,6 +45,12 @@ class ShlinkClient
         return new ShortenedUrl($arr);
     }
 
+    /**
+     * Get visit statistics for a specific short url.
+     * 
+     * @param string $shortCode the shortcode of the short url
+     * @param VisitsOptions $options the visits filter. optional.
+     */
     public function getStatistics(string $shortCode, VisitsOptions $options = null): Visits
     {
         // by default no options

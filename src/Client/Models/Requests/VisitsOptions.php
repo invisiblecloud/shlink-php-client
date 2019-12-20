@@ -4,6 +4,9 @@ namespace InvisibleCollector\Shlink\Client\Models\Requests;
 
 use InvisibleCollector\Shlink\Client\Models\Model;
 
+/**
+ * Short url visit statistics filter model
+ */
 class VisitsOptions extends Model
 {
     /**
