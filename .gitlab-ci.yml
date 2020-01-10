@@ -1,0 +1,31 @@
+image: ros65536/php-shlink-ci
+
+before_script:
+  - composer install
+
+stages:
+  - lint
+  - test
+
+cache:
+  paths:
+    - ./vendor/
+
+
+linter:
+  stage: lint
+  script: 
+    - php -l .
+    - ./vendor/bin/phpcs  --standard=PSR2 src
+
+tests:
+  variables:
+    SHORT_DOMAIN_HOST: shlink:8080
+    SHORT_DOMAIN_SCHEMA: http
+  services:
+    - name: "ros65536/ci-shlink"
+      alias: shlink
+
+  stage: test
+  script: 
+    - SHLINK_HOST=$SHORT_DOMAIN_HOST SHLINK_API_KEY=$(cat ci/api_key.txt) ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
