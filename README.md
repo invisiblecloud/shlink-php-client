@@ -1,19 +1,30 @@
 # Shlink PHP client
 
-A HTTP+JSON client for [shlink](https://shlink.io/)
+A HTTP+JSON client for [shlink](https://shlink.io/).
+
+Checkout the package on [composer](https://packagist.org/packages/invisible-collector/shlink-php-client).
+
+## Instructions
+
+### Setup
+
+Install:
+
+    composer require invisible-collector/shlink-php-client
+
+### Dev
 
 This repository uses the PSR-2 style guide.
 
-## Instructions (dev)
 
-### Setup
+#### Setup
 
 Install dependencies:
 
     sudo apt install php7.2-xml
     sudo apt-get install php7.2-mbstring 
 
-### Linter
+#### Linter
 
 Run linter:
 
@@ -24,7 +35,7 @@ Automatically fix lint problems:
 
     ./vendor/bin/phpcbf  --standard=PSR2 src
 
-### Documentation
+#### Documentation
 
 Setup:
 
