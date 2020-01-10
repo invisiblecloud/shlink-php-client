@@ -6,7 +6,7 @@ Checkout the package on [composer](https://packagist.org/packages/invisible-coll
 
 To install this library run:
 
-    composer require invisible-collector/shlink-php-client
+    composer require invisible-collector/shlink-php-client:dev-master
 
 ## Instructions
 
