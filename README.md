@@ -19,8 +19,7 @@ This repository uses the PSR-2 style guide.
 
 Install dependencies:
 
-    sudo apt install php7.2-xml
-    sudo apt-get install php7.2-mbstring 
+    sudo apt-get install php7.2-{xml,mbstring,json} 
     composer install
 
 #### Linter
