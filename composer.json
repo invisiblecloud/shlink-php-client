@@ -4,7 +4,8 @@
     "type": "library",
     "keywords": [
         "shlink",
-        "HTTP client"
+        "HTTP client",
+        "link shortener"
     ],
     "require": {
         "ext-json": "^1.6",
@@ -14,8 +15,12 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "ros",
+            "name": "Rostyslav Khoptiy",
             "email": "rk65536@protonmail.com"
+        },
+        {
+            "name": "João Madureira",
+            "email": "jmadureira@invisiblecloud.pt"
         }
     ],
     "autoload": {

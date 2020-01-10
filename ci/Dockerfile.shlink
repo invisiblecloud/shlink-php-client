@@ -1,0 +1,6 @@
+FROM shlinkio/shlink:1.20.2
+
+RUN shlink db:create
+RUN shlink api-key:generate
+RUN shlink api-key:list | head -4 | tail -1 | awk '{print $2}' | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" > /api_key.txt
+RUN cat /api_key.txt
