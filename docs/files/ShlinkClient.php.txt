@@ -68,3 +68,4 @@ class ShlinkClient
         return new Visits($arr);
     }
 }
+

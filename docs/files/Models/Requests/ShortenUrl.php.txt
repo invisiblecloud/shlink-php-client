@@ -45,3 +45,4 @@ class ShortenUrl extends Model
         $this->fields["validUntil"] = $isoDate;
     }
 }
+

@@ -37,3 +37,4 @@ class ShortenedUrl extends Model
         return $this->fields["meta"]["validUntil"];
     }
 }
+

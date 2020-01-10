@@ -25,3 +25,4 @@ class VisitsOptions extends Model
         $this->fields["endDate"] = $date;
     }
 }
+

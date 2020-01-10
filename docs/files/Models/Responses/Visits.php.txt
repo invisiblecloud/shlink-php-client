@@ -27,3 +27,4 @@ class Visits extends Model
         return $this->fields["visits"]["data"];
     }
 }
+

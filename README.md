@@ -31,9 +31,15 @@ Automatically fix lint problems:
 
 ### Documentation
 
+Setup:
+
+    composer global require jms/serializer:1.7.*
+    composer global require phpdocumentor/phpdocumentor:^2.9
+
 Generate documentation:
 
-    ./vendor/bin/phpdoc -d ./src -t ./docs
+    ~/.config/composer/vendor/bin/phpdoc -d ./src -t ./docs
+
 
 ### Tests
 
