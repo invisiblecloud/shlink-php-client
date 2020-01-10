@@ -9,7 +9,7 @@
     ],
     "require": {
         "ext-json": "^1.6",
-        "php": "7.2.*",
+        "php": "7.*",
         "guzzlehttp/guzzle": "^6.5"
     },
     "license": "MIT",
