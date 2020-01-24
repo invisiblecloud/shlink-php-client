@@ -5,14 +5,18 @@ use InvisibleCollector\Shlink\Client\ShlinkClient;
 use InvisibleCollector\Shlink\Client\Models\Requests\ShortenUrl;
 
 $domain = "localhost:8080";
-$client = new ShlinkClient("d8080653-e702-4955-a9c7-f5637ad38c38", "http://$domain");
+$client = new ShlinkClient("5ba5e99c-51c4-4f32-99ad-316320d7fac0", "http://$domain");
 
 $request = new ShortenUrl();
 $request->setUrl("http://docs.guzzlephp.org/en/stable/request-options.html");
 $request->setTags(["tag1", "tag2=23"]);
-$request->setCustomSlug("abcd12345");
+// $request->setCustomSlug("abcd12345");
 $request->setDomain($domain); # the right domain might not be set in the server
-$request->setValidUntil("2019-12-20T00:00:00Z");
+
+// $request->setValidUntil("2019-12-20T00:00:00Z");
+$interval = new DateInterval('P30D'); # 30 days, check out: https://en.wikipedia.org/wiki/ISO_8601#Durations
+$request->setValidUntilFromNow($interval);
+
 
 $response = $client->shortenUrl($request);
 
@@ -20,13 +24,13 @@ echo $response;
 echo "\n";
 echo $response->getShortUrl();
 
-// will print for example:
+// will print for example:  
 // Array
 // (
-//     [shortCode] => abcd12345
-//     [shortUrl] => http://localhost:8080/abcd12345
+//     [shortCode] => olxn6
+//     [shortUrl] => http://localhost:8080/olxn6
 //     [longUrl] => http://docs.guzzlephp.org/en/stable/request-options.html
-//     [dateCreated] => 2019-12-16T18:48:39+00:00
+//     [dateCreated] => 2020-01-24T17:06:20+00:00
 //     [visitsCount] => 0
 //     [tags] => Array
 //         (
@@ -37,11 +41,11 @@ echo $response->getShortUrl();
 //     [meta] => Array
 //         (
 //             [validSince] => 
-//             [validUntil] => 2019-12-20T00:00:00+00:00
+//             [validUntil] => 2021-02-23T17:06:17+00:00
 //             [maxVisits] => 
 //         )
 
 //     [originalUrl] => http://docs.guzzlephp.org/en/stable/request-options.html
 // )
 
-// http://localhost:8080/abcd12345
+// http://localhost:8080/olxn6

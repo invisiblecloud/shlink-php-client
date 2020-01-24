@@ -51,6 +51,33 @@ final class ShlinkClientTest extends TestCase
         $this->assertEquals($tags, $response->getTags());
     }
 
+    public function testShortenUrlExpirationTime() 
+    {
+        $slug = ShlinkClientTest::generateSlug();
+
+        $request = new ShortenUrl();
+        $request->setUrl(ShlinkClientTest::generateValidUrl());
+        $request->setCustomSlug($slug);
+
+        $interval = new DateInterval('P30D');
+
+        $request->setValidUntilFromNow($interval);
+
+        $response = $this->client->shortenUrl($request);
+
+        $this->assertEquals($slug, $response->getShortCode());
+
+        // to hour comparison precision
+        $now = new DateTime();
+        $expectedExpiration = $now->add($interval)
+                ->setTimezone(new \DateTimeZone('UTC'))
+                ->format('Y-m-d\TH');
+        $actualExpiration = DateTime::createFromFormat(DateTime::ISO8601, $response->getValidUntil())
+                ->setTimezone(new \DateTimeZone('UTC'))
+                ->format('Y-m-d\TH');
+        $this->assertEquals($expectedExpiration, $actualExpiration);
+    }
+
     public static function simulateClick($url) {
         exec("curl --silent $url");
     }

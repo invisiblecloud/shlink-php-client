@@ -2,6 +2,8 @@
 
 namespace InvisibleCollector\Shlink\Client\Models\Requests;
 
+use DateTime;
+use DateInterval;
 use InvisibleCollector\Shlink\Client\Models\Model;
 
 /**
@@ -43,5 +45,22 @@ class ShortenUrl extends Model
     public function setValidUntil(string $isoDate)
     {
         $this->fields["validUntil"] = $isoDate;
+    }
+
+    /**
+     * Overload for
+     * @see ShortenUrl::setValidUntil
+     *
+     * @param interval amount of time to add to current time to set short url expiration time.
+     */
+    public function setValidUntilFromNow(DateInterval $interval)
+    {
+        $now = new DateTime();
+
+        $isoTime = $now->add($interval)
+                ->setTimezone(new \DateTimeZone('UTC'))
+                ->format('Y-m-d\TH:i:s\Z');
+
+        $this->setValidUntil($isoTime);
     }
 }

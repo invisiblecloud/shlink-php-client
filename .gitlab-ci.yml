@@ -29,3 +29,4 @@ tests:
   stage: test
   script: 
     - SHLINK_HOST=$SHORT_DOMAIN_HOST SHLINK_API_KEY=$(cat ci/api_key.txt) ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
+    
