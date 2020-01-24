@@ -24,7 +24,7 @@ echo $response;
 echo "\n";
 echo $response->getShortUrl();
 
-// will print for example:
+// will print for example:  
 // Array
 // (
 //     [shortCode] => olxn6
