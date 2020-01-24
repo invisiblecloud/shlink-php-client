@@ -8,7 +8,7 @@ To install this library run:
 
     composer require invisible-collector/shlink-php-client:dev-master
 
-## Instructions 
+## Instructions  
 
 ### Dev
 
