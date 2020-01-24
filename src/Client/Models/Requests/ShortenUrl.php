@@ -55,10 +55,10 @@ class ShortenUrl extends Model
      */
     public function setValidUntilFromNow(DateInterval $interval) 
     {
-        $expiration = new DateTime();
-        $expiration = $expiration->add($interval);
+        $now = new DateTime();
 
-        $isoTime = $expiration->setTimezone(new \DateTimeZone('UTC'))
+        $isoTime = $now->add($interval)
+                ->setTimezone(new \DateTimeZone('UTC'))
                 ->format('Y-m-d\TH:i:s\Z');
 
         $this->setValidUntil($isoTime);

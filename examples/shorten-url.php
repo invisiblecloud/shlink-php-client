@@ -14,7 +14,7 @@ $request->setTags(["tag1", "tag2=23"]);
 $request->setDomain($domain); # the right domain might not be set in the server
 
 // $request->setValidUntil("2019-12-20T00:00:00Z");
-$interval = new DateInterval('PY30D'); # 30 days, check out: https://en.wikipedia.org/wiki/ISO_8601#Durations
+$interval = new DateInterval('P30D'); # 30 days, check out: https://en.wikipedia.org/wiki/ISO_8601#Durations
 $request->setValidUntilFromNow($interval);
 
 
