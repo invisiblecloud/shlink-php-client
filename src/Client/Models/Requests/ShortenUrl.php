@@ -48,12 +48,12 @@ class ShortenUrl extends Model
     }
 
     /**
-     * Overload for 
+     * Overload for
      * @see ShortenUrl::setValidUntil
-     * 
+     *
      * @param interval amount of time to add to current time to set short url expiration time.
      */
-    public function setValidUntilFromNow(DateInterval $interval) 
+    public function setValidUntilFromNow(DateInterval $interval)
     {
         $now = new DateTime();
 

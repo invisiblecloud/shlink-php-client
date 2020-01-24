@@ -47,7 +47,7 @@ class ShlinkClient
 
     /**
      * Get visit statistics for a specific short url.
-     * 
+     *
      * @param string $shortCode the shortcode of the short url
      * @param VisitsOptions $options the visits filter. optional.
      */
