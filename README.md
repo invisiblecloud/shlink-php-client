@@ -4,7 +4,7 @@ A HTTP+JSON client for [shlink](https://shlink.io/).
 
 Checkout the package on [composer](https://packagist.org/packages/invisible-collector/shlink-php-client).
 
-Check out the docs [here](https://ross65536.github.io/shlink-php-client/)
+Check out the docs [here](https://invisiblecloud.github.io/shlink-php-client/)
 
 To install this library run:
 
